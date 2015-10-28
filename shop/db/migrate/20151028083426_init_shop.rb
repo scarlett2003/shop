@@ -6,6 +6,7 @@ class InitShop < ActiveRecord::Migration
   		t.timestamps
   	end
   	create_table :items do |t|
+  		t.integer :status , :limit => 1 , :default => 0 , :null => false
   		t.string :name
   		t.integer :price
   		t.text :descript
@@ -22,8 +23,9 @@ class InitShop < ActiveRecord::Migration
   		t.integer :order_id , :null => false
   		t.integer :item_id , :null => false
   		t.integer :user_id , :null => false
-  		t.integer :price , :default => false
+  		t.integer :price , :null => false
   	end
+  	add_index :order_items , [:order_id]
 
   end
 end
