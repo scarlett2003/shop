@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :cates
+
+  resources :items
+
   devise_for :managers
   devise_for :users
   resources :statics , :only => [:index]
